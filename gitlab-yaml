@@ -1,0 +1,81 @@
+image:node:10.16.3
+
+stages:
+  -build
+  -deploy
+
+ cache:
+ 	paths:
+ 		-node_modules/
+ build-pages:
+ 	stage:build
+ 	script:
+ 		-rm -rf build
+ 		-CI=false npm install
+ 		-CI=false npm run build
+ 		-rm -rf public
+ 		-cp build/index.html build/404.html
+ 		-nv build public
+ 	artifacts:
+ 	paths:
+ 		-public
+
+ 	only:
+ 		-master
+ 	pages:
+ 		stage:deploy
+ 		script:
+ 			-ls
+ 		artifacts:
+ 			paths:
+ 				-public
+ 				d-G7$9tgQb]B-5{
+
+
+ ssh:
+ -----BEGIN OPENSSH PRIVATE KEY-----
+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
+-----END OPENSSH PRIVATE KEY-----
+
+
+MASTER_HOST:
+	139.180.172.74
+MASTER_SSH_USER:
+	root
+MASTER_SSH_KEY
+	
