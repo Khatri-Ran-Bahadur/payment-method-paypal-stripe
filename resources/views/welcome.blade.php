@@ -26,7 +26,9 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ url('/products') }}" class="text-sm text-gray-700 underline">Products </a>
                     @else
+                    <a href="{{ url('/products') }}" class="text-sm text-gray-700 underline">Products </a>
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
                         @if (Route::has('register'))
@@ -55,6 +57,11 @@
                     </p>
                     <p>2) /login and /register url are vendor registration and login</p>
                     <p>3) /admin/login and /admin/register url are admin registration and login</p>
+                <h1>Next Feature Payment Method Integartion</h1>
+                    <p>1. Cart</p>
+                    <p>2. Checkout Cart</p>
+                    <p>3. Stripe Payment</p>
+                    <p>4. Paypal Payment</p>
             </div>
         </div>
     </body>

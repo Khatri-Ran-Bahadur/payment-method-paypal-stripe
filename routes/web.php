@@ -16,6 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/products', [App\Http\Controllers\ProductController::class,'index'])->name('products');
+Route::get('/cart', [App\Http\Controllers\ProductController::class,'cart'])->name('cart');
+Route::get('/add-to-cart/{product}', [App\Http\Controllers\ProductController::class,'addToCart'])->name('add-cart');
+Route::get('/remove/{id}', [App\Http\Controllers\ProductController::class,'removeFromCart'])->name('remove');
+
+Route::post('/pay', [App\Http\Controllers\PaymentController::class,'pay'])->name('pay');
+Route::get('payment-success',[App\Http\Controllers\PaymentController::class,'paymentSuccess'])->name('success.pay');
+
+// Route::post('/pay', 'PaymentController@pay')->name('pay');
+
+// Route::post('/indipay/response/success', 'PaymentController@response')->name('pay.response');
+// Route::post('/indipay/response/failure', 'PaymentController@response')->name('pay.response');
+
 // Route::resource('registration',App\Http\Controllers\Vendor\RegistrationController::class);
 Auth::routes();
 
@@ -33,3 +46,5 @@ Route::group(['prefix'=>'admin'],function(){
 
 	Route::post('logout',[App\Http\Controllers\AdminController::class,'logout'])->name('admin.logout');
 });
+
+
